@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Search Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #fafafa;
+        margin: 0;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 4px;
+        padding: 2rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        margin-bottom: 1rem;
+      }
+      p {
+        line-height: 1.6;
+      }
+      footer {
+        text-align: center;
+        margin-top: 2rem;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Search Results</h1>
+      <p id="resultText">Results will be displayed here.</p>
+    </div>
+    <footer>
+      <p>&copy; 2025 Zachary Ryan. All Rights Reserved.</p>
+    </footer>
+    <script>
+      // Read the search query from the URL query string
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get("searchQuery");
+      const resultText = document.getElementById("resultText");
+      if (query) {
+        resultText.textContent = "You searched for: " + query;
+      } else {
+        resultText.textContent = "No search query provided.";
+      }
+    </script>
+  </body>
+</html>
