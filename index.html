@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Dark Blue Template with Background Image</title>
+    <title>Dark Blue Template</title>
     <style>
       /* Global Reset */
       * {
@@ -13,15 +13,13 @@
       }
 
       body {
-        /* If you want text in the hero to be black, keep it here. 
-           Otherwise, consider changing to #fff for better contrast. */
+        /* Text color set to black; feel free to change to #fff if you prefer */
         color: black;
+        background: #0d3a61;
         margin: 0;
         padding: 0;
         /* Reserve space for the fixed footer */
         padding-bottom: 60px;
-        /* Fallback background color (behind the hero section) */
-        background: #0d3a61;
       }
 
       /* Full-page hero/background */
@@ -32,8 +30,8 @@
         justify-content: center;
         align-items: center;
         /* 
-          1) The linear-gradient adds a dark overlay.
-          2) Then we place the phishing.webp image centered and cover the whole area.
+          Darker blue gradient with background image 
+          (replace url(...) if you want your phishing.webp image here)
         */
         background: linear-gradient(
             rgba(13, 58, 97, 0.7),
@@ -89,11 +87,17 @@
     </style>
   </head>
   <body>
-    <!-- Full-screen hero section with only the form -->
+    <!-- Full-screen hero section with the form -->
     <section class="hero">
-      <form class="analyze-form">
+      <!-- 
+        action="analysis.html" => navigates to analysis.html
+        method="GET" => passes user input in the URL
+        name="phishingInput" => the parameter name we'll retrieve on the next page
+      -->
+      <form class="analyze-form" action="analysis.html" method="GET">
         <input
           type="text"
+          name="phishingInput"
           placeholder="Copy and Paste the URL or Phishing Email"
         />
         <button type="submit">Analyze</button>
