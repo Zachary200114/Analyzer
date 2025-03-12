@@ -11,16 +11,13 @@
         box-sizing: border-box;
         font-family: Arial, sans-serif;
       }
-
       body {
         color: black;
         background: #0d3a61;
         margin: 0;
         padding: 0;
-        /* Reserve space for the fixed footer */
-        padding-bottom: 60px;
+        padding-bottom: 60px; /* Reserve space for the fixed footer */
       }
-
       /* Full-page hero/background */
       .hero {
         min-height: calc(100vh - 60px);
@@ -34,7 +31,6 @@
           url("assets/phishing.webp") no-repeat center center;
         background-size: cover;
       }
-
       /* Form styles */
       .analyze-form {
         display: flex;
@@ -42,7 +38,6 @@
         max-width: 500px;
         width: 100%;
       }
-
       .analyze-form input {
         margin-bottom: 1rem;
         padding: 0.75rem 1rem;
@@ -51,7 +46,6 @@
         font-size: 1rem;
         outline: none;
       }
-
       .analyze-form button {
         padding: 0.75rem 1.5rem;
         border: none;
@@ -63,11 +57,9 @@
         cursor: pointer;
         transition: background 0.3s ease;
       }
-
       .analyze-form button:hover {
         background: #fdd835;
       }
-
       /* Fixed Footer */
       footer {
         position: fixed;
@@ -83,19 +75,17 @@
   <body>
     <!-- Full-screen hero section with the form -->
     <section class="hero">
-      <!-- The form now collects both the phishing input and the API key -->
-      <form class="analyze-form" action="/analyze" method="POST">
+      <!-- The form sends the input via GET to results.html -->
+      <form class="analyze-form" action="results.html" method="GET">
         <input
           type="text"
-          name="phishingInput"
+          name="searchQuery"
           placeholder="Copy and Paste the URL or Phishing Email"
           required
         />
-        <input type="text" name="apiKey" placeholder="Enter API Key" required />
         <button type="submit">Analyze</button>
       </form>
     </section>
-
     <!-- Fixed Footer -->
     <footer>
       <p>&copy; 2025 Zachary Ryan. All Rights Reserved.</p>
