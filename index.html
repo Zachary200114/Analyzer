@@ -13,7 +13,6 @@
       }
 
       body {
-        /* Text color set to black; feel free to change to #fff if you prefer */
         color: black;
         background: #0d3a61;
         margin: 0;
@@ -24,15 +23,10 @@
 
       /* Full-page hero/background */
       .hero {
-        /* Subtract footer height from viewport height */
         min-height: calc(100vh - 60px);
         display: flex;
         justify-content: center;
         align-items: center;
-        /* 
-          Darker blue gradient with background image 
-          (replace url(...) if you want your phishing.webp image here)
-        */
         background: linear-gradient(
             rgba(13, 58, 97, 0.7),
             rgba(15, 68, 115, 0.7)
@@ -41,19 +35,19 @@
         background-size: cover;
       }
 
-      /* Search/Analyze Form */
+      /* Form styles */
       .analyze-form {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         max-width: 500px;
         width: 100%;
       }
 
       .analyze-form input {
-        flex: 1;
+        margin-bottom: 1rem;
         padding: 0.75rem 1rem;
         border: none;
-        border-radius: 4px 0 0 4px;
+        border-radius: 4px;
         font-size: 1rem;
         outline: none;
       }
@@ -65,7 +59,7 @@
         color: #0d3a61;
         font-size: 1rem;
         font-weight: bold;
-        border-radius: 0 4px 4px 0;
+        border-radius: 4px;
         cursor: pointer;
         transition: background 0.3s ease;
       }
@@ -74,7 +68,7 @@
         background: #fdd835;
       }
 
-      /* Fixed Footer with white background */
+      /* Fixed Footer */
       footer {
         position: fixed;
         bottom: 0;
@@ -89,17 +83,15 @@
   <body>
     <!-- Full-screen hero section with the form -->
     <section class="hero">
-      <!-- 
-        action="analysis.html" => navigates to analysis.html
-        method="GET" => passes user input in the URL
-        name="phishingInput" => the parameter name we'll retrieve on the next page
-      -->
-      <form class="analyze-form" action="analysis.html" method="GET">
+      <!-- The form now collects both the phishing input and the API key -->
+      <form class="analyze-form" action="/analyze" method="POST">
         <input
           type="text"
           name="phishingInput"
           placeholder="Copy and Paste the URL or Phishing Email"
+          required
         />
+        <input type="text" name="apiKey" placeholder="Enter API Key" required />
         <button type="submit">Analyze</button>
       </form>
     </section>

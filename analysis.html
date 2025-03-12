@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Search Results</title>
+    <title>Analysis Results</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -24,7 +24,6 @@
       p {
         line-height: 1.6;
       }
-      /* Simple footer (not fixed, can be changed as needed) */
       footer {
         text-align: center;
         margin-top: 2rem;
@@ -34,27 +33,14 @@
   </head>
   <body>
     <div class="container">
-      <h1>Search Results</h1>
-      <p id="analysisText">Your results will appear here.</p>
+      <h1>Analysis Results</h1>
+      <p><strong>Input:</strong> {{ user_input }}</p>
+      <p><strong>Result:</strong> {{ result }}</p>
+      <p><strong>API Key Used:</strong> {{ api_key }}</p>
     </div>
 
     <footer>
       <p>&copy; 2025 Zachary Ryan. All Rights Reserved.</p>
     </footer>
-
-    <script>
-      // Get the query parameters from the URL (e.g., ?phishingInput=someText)
-      const params = new URLSearchParams(window.location.search);
-      // Extract the 'phishingInput' value
-      const userInput = params.get("phishingInput");
-
-      // Display it in the #analysisText paragraph
-      const analysisText = document.getElementById("analysisText");
-      if (userInput) {
-        analysisText.textContent = `You submitted: ${userInput}`;
-      } else {
-        analysisText.textContent = "No input was provided.";
-      }
-    </script>
   </body>
 </html>
